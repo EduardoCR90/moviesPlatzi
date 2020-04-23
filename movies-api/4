@@ -1,0 +1,24 @@
+
+> husky@4.2.5 install D:\TODO\PLATZI\Backend_con_Node\movies-api\node_modules\husky
+> node husky install
+
+husky > Setting up git hooks
+fatal: not a git repository (or any of the parent directories): .git
+husky > Failed to install
+
+> husky@4.2.5 postinstall D:\TODO\PLATZI\Backend_con_Node\movies-api\node_modules\husky
+> opencollective-postinstall || exit 0
+
+[96m[1mThank you for using husky![96m[1m
+[0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+> [94mhttps://opencollective.com/husky/donate[0m
+
++ husky@4.2.5
++ lint-staged@10.1.7
+added 111 packages from 50 contributors and audited 675 packages in 13.401s
+
+18 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
