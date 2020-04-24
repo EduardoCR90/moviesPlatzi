@@ -9,6 +9,12 @@ const {
 
 const validationHandler = require('../utils/middleware/validationHandler');
 
+const cacheResponse = require('../utils/cacheResponse');
+const {
+    FIVE_MINUTES_IN_SECONDS,
+    SIXTY_MINUTES_IN_SECONDS
+} = require('../utils/time');
+
 
 function moviesAPI(app) {
     const router = express.Router();
@@ -18,6 +24,7 @@ function moviesAPI(app) {
 
     //RUTAS
     router.get("/", async function (req, res, next) {
+        cacheResponse(res, FIVE_MINUTES_IN_SECONDS);
         const { tags } = req.query;//saco los tag del query y los paso a servicio
         try {
             const movies = await moviesService.getMovies({ tags });//aki los paso a servicio
@@ -35,6 +42,7 @@ function moviesAPI(app) {
 
     //el middleware va entre la ruta y la funcion async
     router.get("/:movieId", validationHandler({ movieId: movieIdSchema }, 'params'), async function (req, res, next) { //en el valhand()lo q digo es q el movieId tendra un schema y lo saco de params
+        cacheResponse(res, SIXTY_MINUTES_IN_SECONDS);
         const { movieId } = req.params; //extraigo el id del parametro
         try {
             const movies = await moviesService.getMovie({ movieId });//id pasado x param
