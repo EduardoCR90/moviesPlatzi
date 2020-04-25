@@ -3,6 +3,7 @@ const app = express();
 
 //INICIALIZACIONES
 const {config} = require('./config/index');
+const authApi = require('./routes/auth')
 const moviesAPI = require('./routes/movies');
 const userMoviesAPI = require('./routes/userMovies');
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 
 //RUTAS
+authApi(app);
 moviesAPI(app);
 userMoviesAPI(app);
 app.use(notFoundHandler);//catch 404
