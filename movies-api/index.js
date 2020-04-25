@@ -4,6 +4,8 @@ const app = express();
 //INICIALIZACIONES
 const {config} = require('./config/index');
 const moviesAPI = require('./routes/movies');
+const userMoviesAPI = require('./routes/userMovies');
+
 const {
     logErrors,
     wrapErrors,
@@ -19,6 +21,7 @@ app.use(express.json());
 
 //RUTAS
 moviesAPI(app);
+userMoviesAPI(app);
 app.use(notFoundHandler);//catch 404
 
 
